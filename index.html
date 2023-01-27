@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="product-filter">
+        <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search Product" id="input" onkeyup="search()">
+        </div>
+        <div class="list-product" id="list-product">
+            <div class="product">
+                <img src="products/f1.jpg" alt="products" srcset="">
+                <div class="title">
+                    <h2>T-shirts of everyone</h2>
+                    <p>$25</p>
+                </div>
+              </div>
+              <div class="product">
+                <img src="products/f2.jpg" alt="products" srcset="">
+                <div class="title">
+                    <h2>T-shirts of everyone</h2>
+                    <p>$25</p>
+                </div>
+              </div>
+              <div class="product">
+                <img src="products/f3.jpg" alt="products" srcset="">
+                <div class="title">
+                    <h2>T-shirts of everyone</h2>
+                    <p>$25</p>
+                </div>
+              </div>
+              <div class="product">
+                <img src="products/f4.jpg" alt="products" srcset="">
+                <div class="title">
+                    <h2>Class of chemise</h2>
+                    <p>$25</p>
+                </div>
+              </div>
+              <div class="product">
+                <img src="products/f5.jpg" alt="products" srcset="">
+                <div class="title">
+                    <h2>Chemis of everyone</h2>
+                    <p>$25</p>
+                </div>
+              </div>
+              <div class="product">
+                <img src="products/f6.jpg" alt="products" srcset="">
+                <div class="title">
+                    <h2>  everyone Chemise</h2>
+                    <p>$25</p>
+                </div>
+              </div>
+              <div class="product">
+                <img src="products/f4.jpg" alt="products" srcset="">
+                <div class="title">
+                    <h2>Class </h2>
+                    <p>$25</p>
+                </div>
+            </div>
+            <div class="product">
+                <img src="products/f4.jpg" alt="products" srcset="">
+                <div class="title">
+                    <h2>pantalon</h2>
+                    <p>$25</p>
+                </div>
+            </div>
+                
+        </div>
+    </section>
+    <script>
+        search=()=>{
+            //selction input to Upercase
+            const serchinput=document.getElementById("input").value.toUpperCase();
+            //seltionner parent element pour acceder au liste items product
+            const listItem = document.getElementById("list-product");
+            //selctioner all products
+            const products =document.querySelectorAll(".product");
+            //selctionner h2 of product
+            const product_name=listItem.getElementsByTagName('h2');
+            //boucle pour la taille prdouct_name
+            for(var i=0;i<product_name.length;i++){
+                //acceder to h2 into product
+               let match = products[i].getElementsByTagName('h2')[0]; 
+                if(match){
+                    let textValue = match.textContent || match.innerHTML
+                    if(textValue.toUpperCase().indexOf(serchinput)>-1){
+                        products[i].style.display="";
+                    }
+                    else{
+                        products[i].style.display="none";
+                    }
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
